@@ -1,0 +1,26 @@
+<table class="table table-bordered table-hover">
+    <thead class="thead-dark">
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Quantity</th>
+            <th>Cost</th>
+            <th>Type</th>
+            <th>Description</th>
+            <th>DOM</th>
+            <th>DOE</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor='let product of products'>
+            <td>{{product.id}}</td>
+            <td>{{product.name}}</td>
+            <td>{{product.quantity}}</td>
+            <td>{{product.cost}}</td>
+            <td>{{product.type}}</td>
+            <td>{{product.description}}</td>
+            <td>{{product.DOM}}</td>
+            <td>{{product.DOE}}</td>
+        </tr>
+    </tbody>
+</table>

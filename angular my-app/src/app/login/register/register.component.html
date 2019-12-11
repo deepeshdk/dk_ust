@@ -1,0 +1,41 @@
+<div class="col-md-6 offset-md-3">
+    <form [formGroup]='registrationForm' (ngSubmit)='printForm()'>
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" name="name" class="form-control" formControlName='name' id="name">
+        </div>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" name="email" class="form-control" id="email" formControlName='email'>
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password" formControlName='password' class="form-control">
+        </div>
+        <button class="btn btn-primary" type="button" (click)='addSkill()'>
+            Add Skill
+        </button>
+        <div formArrayName='skills' 
+        *ngFor='let control of registrationForm.get("skills").controls;index as i'>
+            <div [formGroupName]='i'>
+                <div class="form-group">
+                    <label for="{{'skill' + (i+1)}}">Skill {{i+1}}</label>
+                    <input type="text" name="skill" id="{{'skill'+i}}" 
+                    formControlName='skill' class="form-control">
+                    <input type="radio" formControlName='rating' 
+                    value="beginner" id="{{'rating'+i+1}}">Beginner
+                    <input type="radio" formControlName='rating' 
+                    value="intermediate" id="{{'rating'+i+2}}">Intermediate
+                    <input type="radio" formControlName='rating' 
+                    value="expert" id="{{'rating'+i+3}}">Expert
+                    <button (click)='removeSkill(i)' type="button" class="btn btn-dark">
+                        &times;
+                    </button>
+                </div>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-outline-primary float-right">
+            Submit
+        </button>
+    </form>
+</div>

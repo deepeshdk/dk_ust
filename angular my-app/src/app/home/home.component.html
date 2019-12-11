@@ -1,0 +1,25 @@
+<h1>{{currentDate | date: 'medium'}}</h1>
+<h1>{{100000 | currency: 'INR'}}</h1>
+<input type="search" name="search" [(ngModel)]='search' 
+placeholder="Enter Name of student to search..."
+class="form-control col-md-4 offset-md-4 mb-3 mt-5">
+<table class="table table-bordered table-hover">
+    <thead class="thead-dark">
+        <tr>
+            <th>Index</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Degree</th>
+            <th>Company</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor='let student of students | filter : search; index as i'>
+            <td>{{i + 1}}</td>
+            <td>{{student.name}}</td>
+            <td>{{student.age}}</td>
+            <td>{{student.degree}}</td>
+            <td>{{student.company}}</td>
+        </tr>
+    </tbody>
+</table>
